@@ -1,7 +1,9 @@
 <?php 
     class App{
         public static function executar(){
-
+            if(isset($_GET['logout'])){
+                controllers\ChatController::logout();
+            }
             if(isset($_POST['registro'])){
                 controllers\RegistroController::registrarUsuario($_POST['nome'],$_POST['usuario'],$_POST['senha']);
             }
