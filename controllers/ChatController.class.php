@@ -5,7 +5,7 @@
     
     class ChatController{
         public static function executar(){
-            views\View::render('chat');
+            views\View::render('chat',self::getUsers());
         }
         public static function logout(){
             session_destroy();
@@ -14,6 +14,9 @@
         private static function redirect($url=null){
             header('Location: '.ROOT_PATH.$url);
             die();
+        }
+        public static function getUsers(){
+            return models\ChatModel::getUsers();
         }
     }
 ?>
