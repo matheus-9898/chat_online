@@ -25,25 +25,31 @@ textarea:focus{
     right: 50px;
     bottom: 50px;
 }
-main{
-    min-height: 100vh;
+body,
+html{
     height: 100vh;
+}
+main{
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    height: 100vh;
 }
 .contUsers{
     width: 100%;
     display: flex;
     gap: 10px;
+    overflow: auto;
 }
 .contUser{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    flex-shrink: 0;
+    height: 100%;
 }
 .contUser img{
     width: 50px;
@@ -56,16 +62,48 @@ main{
 }
 .contChat{
     flex: 1;
-    max-width: 500px;
-    width: 100%;
+    aspect-ratio: 0.8;
+    max-width: 480px;
     border-radius: 5px;
     border: 1px solid grey;
     display: flex;
     flex-direction: column;
     padding: 10px;
+    gap: 10px;
+}
+.contPerfil{
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.contPerfil img{
+    width: 50px;
+    height: 50px;
 }
 .contMsgs{
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
+    max-height: 100%;
+}
+.msg{
+    display: flex;
+}
+.msg > div{
+    padding: 5px;width: 52%;
+    border-radius: 5px;
+}
+.msgEnviada{
+    justify-content: right;
+}
+.msgEnviada > div{
+    background-color: blue;
+}
+.msgRecebida > div{
+    background-color: grey;
 }
 .contEnviar{
     height: fit-content;

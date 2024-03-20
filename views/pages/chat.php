@@ -14,16 +14,29 @@
         <div class="contUsers">
             <?php for ($i=0; $i <10 ; $i++) { ?>
                 <div class="contUser">
-                    <img src="views/images/ico-fotoperfil.png" alt="Perfil">
+                    <img src="views/images/ico-fotoperfil.png" alt="Perfil" class="imgPerfil">
                     <span>Matheus Machado</span>
                 </div>
             <?php } ?>
         </div>
         <div class="contChat">
+            <div class="contPerfil">
+                <img src="views/images/ico-fotoperfil.png" alt="Perfil" class="imgPerfil">
+                <span>Matheus Machado</span>
+            </div>
             <div class="contMsgs">
-                <div class="msg">
-
+                <?php //for ($i=0; $i < 10; $i++) { ?>
+                <div class="msg msgEnviada">
+                    <div>
+                        Olá mundo! Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo! Enviado
+                    </div>
                 </div>
+                <div class="msg msgRecebida">
+                    <div>
+                        Olá mundo! Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo! Recebido
+                    </div>
+                </div>
+                <?php //} ?>
             </div>
             <form action="" method="" class="contEnviar">
                 <!-- <input type="text" placeholder="Escreva sua mensagem..." name="mensagem"> -->
