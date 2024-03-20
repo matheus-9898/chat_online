@@ -17,13 +17,17 @@ html{
     height: 100vh;
 }
 header{
-    position: absolute;
-    right: 50px;
-    bottom: 50px;
+    padding: 0 10px;
+    height: 70px;
+}
+.centerHeader{
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
     gap: 20px;
     align-items: center;
+    justify-content: right;
 }
 .btsHeader{
     background-color: rgb(244, 248, 255);
@@ -37,56 +41,47 @@ header{
     cursor: pointer;
 }
 main{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    height: 100vh;
+    padding: 10px;
+    height: calc(100vh - 70px);
+    position: relative;
+}
+.centerMain{
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 .contUsers{
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    overflow: auto;
-}
-.contUser{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    flex-shrink: 0;
+    gap: 10px;
+    overflow: auto;
+    width: fit-content;
     height: 100%;
 }
-.contUser img{
-    width: 50px;
-    height: 50px;
-}
-.contUser span{
-    font-size: 14px;
-    max-width: 80px;
-    text-align: center;
+#user{
+    cursor: pointer;
+    font-weight: 600;
 }
 .contChat{
-    flex: 1;
     aspect-ratio: 0.8;
     max-width: 480px;
+    width: 100%;
     border-radius: 5px;
     border: 1px solid grey;
     display: flex;
     flex-direction: column;
     padding: 10px;
     gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 .contPerfil{
     height: fit-content;
     display: flex;
     align-items: center;
     gap: 10px;
-}
-.contPerfil img{
-    width: 50px;
-    height: 50px;
 }
 .contMsgs{
     flex: 1;
