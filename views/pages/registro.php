@@ -11,6 +11,7 @@
         <h1>Registro de usuário</h1>
         <form action="<?= ROOT_PATH ?>" method="post" class="formLogin">
             <input type="text" placeholder="Nome" name="nome">
+            <input type="text" placeholder="Sobrenome" name="sobrenome">
             <input type="text" placeholder="Usuário" name="usuario">
             <input type="password" placeholder="Senha" name="senha">
             <input type="submit" value="Registrar" name="registro">

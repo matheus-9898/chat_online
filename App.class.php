@@ -5,7 +5,7 @@
                 controllers\ChatController::logout();
             }
             if(isset($_POST['registro'])){
-                controllers\RegistroController::registrarUsuario($_POST['nome'],$_POST['usuario'],$_POST['senha']);
+                controllers\RegistroController::registrarUsuario($_POST['nome'],$_POST['sobrenome'],$_POST['usuario'],$_POST['senha']);
             }
             if(isset($_POST['login'])){
                 controllers\LoginController::login($_POST['usuario'],$_POST['senha']);

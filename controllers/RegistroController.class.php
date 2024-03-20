@@ -7,8 +7,8 @@
         public static function executar(){
             views\View::render('registro');
         }
-        public static function registrarUsuario($name,$user,$pass){
-            if(models\RegistroModel::registrarUsuario($name,$user,$pass))
+        public static function registrarUsuario($name,$lastName,$user,$pass){
+            if(models\RegistroModel::registrarUsuario($name,$lastName,$user,$pass))
                 self::redirect();
             else
                 self::redirect('registro');
