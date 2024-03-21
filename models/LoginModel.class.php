@@ -8,7 +8,7 @@
             $sql->execute(array($user,$pass));
             if($sql->rowCount() == 1){
                 $info = $sql->fetch(PDO::FETCH_ASSOC);
-                return $info['id'];
+                return $info;
             }else
                 return false;
         }

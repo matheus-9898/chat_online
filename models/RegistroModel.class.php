@@ -13,8 +13,8 @@
         public static function registrarUsuario($name,$lastName,$user,$pass){
             if(trim($name) != '' && trim($user) != '' && trim($pass) != ''){
                 if(self::verifNomeUser($user)){
-                    $sql = MysqlModel::conexaoBD()->prepare('INSERT INTO usuarios VALUES (?,?,?,?,?)');
-                    $sql->execute(array(null,$name,$lastName,$user,$pass));
+                    $sql = MysqlModel::conexaoBD()->prepare('INSERT INTO usuarios VALUES (?,?,?,?,?,?)');
+                    $sql->execute(array(null,$name,$lastName,'ico-fotoperfil.png',$user,$pass));
                     return true;
                 }else{
                     return false;

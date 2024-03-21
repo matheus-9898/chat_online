@@ -11,7 +11,12 @@
             $result = models\LoginModel::login($user,$pass);
             if($result != false){
                 $_SESSION['login_ChatOnline'] = true;
-                $_SESSION['id'] = intval($result);
+                $_SESSION['id'] = intval($result['id']);
+                $_SESSION['nome'] = $result['nome'];
+                $_SESSION['sobrenome'] = $result['sobrenome'];
+                $_SESSION['foto'] = $result['foto'];
+                $_SESSION['usuario'] = $result['usuario'];
+                $_SESSION['senha'] = $result['senha'];
                 self::redirect();
             }
         }
