@@ -42,12 +42,13 @@
     <main>
         <div class="centerMain">
             <div class="contUsers">
-                <?php foreach($users as $value) { ?>
-                    <div class="user">
+                <?php foreach($users as $value) {
+                    if($value['id'] != $_SESSION['id']){ ?>
+                    <div class="user" iduser="<?= $value['id'] ?>">
                         <img src="views/images/perfil/<?= $value['foto'] ?>" alt="Perfil" class="fotoPerfil">
                         <?= $value['nome'].' '. $value['sobrenome']?>
                     </div>
-                <?php } ?>
+                <?php } } ?>
             </div>
             <div class="contChat">
                 <div class="contPerfil">

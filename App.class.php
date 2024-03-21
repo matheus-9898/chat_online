@@ -1,6 +1,17 @@
 <?php 
     class App{
         public static function executar(){
+            if(isset($_GET['ajax'])){
+                switch ($_GET['ajax']) {
+                    case 'loadChat':
+                        controllers\ChatController::loadChat($_POST['idUser']);
+                        break;
+                    
+                    default:
+                        # code...
+                        break;
+                }
+            }
             if(isset($_POST['editUser'])){
                 controllers\ChatController::editUser($_POST['nome'],$_POST['sobrenome'],$_FILES['foto'],$_POST['usuario'],$_POST['senha']);
             }

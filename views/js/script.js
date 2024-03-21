@@ -12,4 +12,19 @@ $(function(){
         e.preventDefault();
         $('.contProfile').fadeOut(200);
     })
+    //pegando dados para exibir no chat
+    $('.contUsers').on('click','.user',function(){
+        var idUser = parseInt($(this).attr('iduser'));
+        $.ajax({
+            type: "post",
+            url: "index.php/?ajax=loadChat",
+            data: {idUser : idUser},
+            dataType: "json"
+        }).done(function(data){
+            data = Object.entries(data.dadosUser);
+            var dadosUser = data[0][1];
+            $('.contPerfil > span').html(dadosUser['nome']+' '+dadosUser['sobrenome']);
+            $('.contPerfil > img').attr('src','views/images/perfil/'+dadosUser['foto']);
+        });
+    })
 })

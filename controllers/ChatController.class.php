@@ -35,5 +35,8 @@
                 self::redirect();
             }
         }
+        public static function loadChat($idUser=null){
+            return models\ChatModel::loadChat($idUser);
+        }
     }
 ?>

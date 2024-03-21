@@ -33,5 +33,12 @@
 
             return array($nome,$sobrenome,$nomeFoto,$usuario,$senha);
         }
+        public static function loadChat($idUser){
+            $sql = MysqlModel::conexaoBD()->prepare('SELECT * FROM usuarios WHERE id=?');
+            $sql->execute(array($idUser));
+            $info = $sql->fetchAll(PDO::FETCH_ASSOC);
+            $data['dadosUser'] = $info;
+            die(json_encode($data));
+        }
     }
 ?>
