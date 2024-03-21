@@ -1,4 +1,6 @@
 $(function(){
+    var idReceptor = null;
+
     //abrir modal perfil
     $('#btProfile').click(function(){
         $('.contProfile').fadeIn(200).css('display','flex');
@@ -12,19 +14,42 @@ $(function(){
         e.preventDefault();
         $('.contProfile').fadeOut(200);
     })
-    //pegando dados para exibir no chat
+    //pegando dados do chat para serem exibidos
     $('.contUsers').on('click','.user',function(){
-        var idUser = parseInt($(this).attr('iduser'));
+        idReceptor = parseInt($(this).attr('idUser'));
         $.ajax({
-            type: "post",
+            type: "get",
             url: "index.php/?ajax=loadChat",
-            data: {idUser : idUser},
+            data: {idReceptor : idReceptor},
             dataType: "json"
         }).done(function(data){
-            data = Object.entries(data.dadosUser);
-            var dadosUser = data[0][1];
-            $('.contPerfil > span').html(dadosUser['nome']+' '+dadosUser['sobrenome']);
-            $('.contPerfil > img').attr('src','views/images/perfil/'+dadosUser['foto']);
+            data = Object.entries(data.dadosChat);
+            var dadosChat = data[0][1];
+            $('.contAvisoChat').fadeOut(100);
+            setTimeout(() => {
+                $('.contPerfil').fadeIn(100).css('display','flex');
+                $('.contMsgs').fadeIn(100).css('display','flex');
+                $('.contEnviar').fadeIn(100).css('display','flex');
+            }, 100);
+            $('.contPerfil > span').html(dadosChat['nome']+' '+dadosChat['sobrenome']);
+            $('.contPerfil > img').attr('src','views/images/perfil/'+dadosChat['foto']);
         });
     })
+    //enviando mensagens
+    $('#enviarMsg').submit(function (e) { 
+        e.preventDefault();
+
+        if(idReceptor != null){
+            $.ajax({
+                type: "post",
+                url: "index.php/?ajax=enviarMsg",
+                data: $(this).serialize()+'&'+$.param({ idReceptor : idReceptor }),
+                dataType: "json"
+            }).done(function(data){
+                
+            });
+
+            $('#enviarMsg > textarea').val('');
+        }
+    });
 })

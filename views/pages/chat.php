@@ -51,9 +51,12 @@
                 <?php } } ?>
             </div>
             <div class="contChat">
+                <div class="contAvisoChat">
+                    <span>Selecione um usuário para iniciar um chat.</span>
+                </div>
                 <div class="contPerfil">
-                    <img src="views/images/perfil/ico-fotoperfil.png" alt="Perfil" class="fotoPerfil">
-                    <span>Matheus Machado</span>
+                    <img src="" alt="Perfil" class="fotoPerfil">
+                    <span></span>
                 </div>
                 <div class="contMsgs">
                     <?php //for ($i=0; $i < 10; $i++) { ?>
@@ -69,9 +72,9 @@
                     </div>
                     <?php //} ?>
                 </div>
-                <form action="<?= ROOT_PATH ?>" method="post" class="contEnviar">
+                <form action="<?= ROOT_PATH ?>" method="post" class="contEnviar" id="enviarMsg">
                     <textarea placeholder="Escreva sua mensagem..." name="mensagem" rows="1"></textarea>
-                    <input type="submit" value="Enviar" name="enviarMsg">
+                    <input type="submit" value="Enviar">
                 </form>
             </div>
         </div>

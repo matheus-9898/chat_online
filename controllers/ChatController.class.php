@@ -1,6 +1,8 @@
 <?php 
     namespace controllers;
-    use views;
+
+use DateTime;
+use views;
     use models;
     
     class ChatController{
@@ -35,8 +37,11 @@
                 self::redirect();
             }
         }
-        public static function loadChat($idUser=null){
-            return models\ChatModel::loadChat($idUser);
+        public static function loadChat($idReceptor){
+            models\ChatModel::loadChat($idReceptor);
+        }
+        public static function enviarMsg($mensagem,$idReceptor){
+            models\ChatModel::enviarMsg($mensagem,date('Y-m-d H:i:s'),$_SESSION['id'],$idReceptor);
         }
     }
 ?>

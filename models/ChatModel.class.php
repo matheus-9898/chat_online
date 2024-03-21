@@ -33,11 +33,18 @@
 
             return array($nome,$sobrenome,$nomeFoto,$usuario,$senha);
         }
-        public static function loadChat($idUser){
+        public static function loadChat($idReceptor){
             $sql = MysqlModel::conexaoBD()->prepare('SELECT * FROM usuarios WHERE id=?');
-            $sql->execute(array($idUser));
+            $sql->execute(array($idReceptor));
             $info = $sql->fetchAll(PDO::FETCH_ASSOC);
-            $data['dadosUser'] = $info;
+            $data['dadosChat'] = $info;
+            die(json_encode($data));
+        }
+        public static function enviarMsg($mensagem,$data_hora,$idEmissor,$idReceptor){
+            $sql = MysqlModel::conexaoBD()->prepare('INSERT INTO mensagens VALUES(?,?,?,?,?)');
+            $sql->execute(array(null,$mensagem,$data_hora,$idEmissor,$idReceptor));
+
+            $data['dados'] = true;
             die(json_encode($data));
         }
     }

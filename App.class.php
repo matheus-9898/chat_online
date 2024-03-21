@@ -4,7 +4,10 @@
             if(isset($_GET['ajax'])){
                 switch ($_GET['ajax']) {
                     case 'loadChat':
-                        controllers\ChatController::loadChat($_POST['idUser']);
+                        controllers\ChatController::loadChat($_GET['idReceptor']);
+                        break;
+                    case 'enviarMsg':
+                        controllers\ChatController::enviarMsg($_POST['mensagem'],$_POST['idReceptor']);
                         break;
                     
                     default:
