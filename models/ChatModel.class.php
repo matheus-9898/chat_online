@@ -33,12 +33,17 @@
 
             return array($nome,$sobrenome,$nomeFoto,$usuario,$senha);
         }
-        public static function loadChat($idReceptor){
+        public static function loadPerfilChat($idReceptor){
             $sql = MysqlModel::conexaoBD()->prepare('SELECT * FROM usuarios WHERE id=?');
             $sql->execute(array($idReceptor));
             $info = $sql->fetchAll(PDO::FETCH_ASSOC);
-            $data['dadosChat'] = $info;
-            die(json_encode($data));
+            return $info;
+        }
+        public static function loadMsgChat(){
+            $sql = MysqlModel::conexaoBD()->prepare('SELECT * FROM mensagens WHERE emissor_id=? OR receptor_id=?');
+            $sql->execute(array($_SESSION['id'],$_SESSION['id']));
+            $info = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $info;
         }
         public static function enviarMsg($mensagem,$data_hora,$idEmissor,$idReceptor){
             $sql = MysqlModel::conexaoBD()->prepare('INSERT INTO mensagens VALUES(?,?,?,?,?)');

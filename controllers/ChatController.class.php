@@ -38,7 +38,19 @@ use views;
             }
         }
         public static function loadChat($idReceptor){
-            models\ChatModel::loadChat($idReceptor);
+            $dadosPerfilChat = models\ChatModel::loadPerfilChat($idReceptor);
+            $dadosMsgChat = models\ChatModel::loadMsgChat();
+
+            foreach ($dadosMsgChat as $value) {
+                if($value['emissor_id'] == $_SESSION['id'])
+                    $value['controle'] = 'msgEnviada';
+                else
+                    $value['controle'] = 'msgRecebida';
+            }
+            
+            $data['dadosPerfilChat'] = $dadosPerfilChat;
+            $data['dadosMsgChat'] = $dadosMsgChat;
+            die(json_encode($data));
         }
         public static function enviarMsg($mensagem,$idReceptor){
             models\ChatModel::enviarMsg($mensagem,date('Y-m-d H:i:s'),$_SESSION['id'],$idReceptor);
