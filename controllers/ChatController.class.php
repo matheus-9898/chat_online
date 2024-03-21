@@ -39,17 +39,17 @@ use views;
         }
         public static function loadChat($idReceptor){
             $dadosPerfilChat = models\ChatModel::loadPerfilChat($idReceptor);
-            $dadosMsgChat = models\ChatModel::loadMsgChat();
+            $dadosMsgChat = models\ChatModel::loadMsgChat($idReceptor);
 
-            foreach ($dadosMsgChat as $value) {
+            foreach ($dadosMsgChat as $key => $value) {
                 if($value['emissor_id'] == $_SESSION['id'])
-                    $value['controle'] = 'msgEnviada';
+                    $dadosMsgChat[$key]['controle'] = 'msgEnviada';
                 else
-                    $value['controle'] = 'msgRecebida';
+                    $dadosMsgChat[$key]['controle'] = 'msgRecebida';
             }
             
             $data['dadosPerfilChat'] = $dadosPerfilChat;
-            $data['dadosMsgChat'] = $dadosMsgChat;
+            $data['dadosMsgChat'] = array_reverse($dadosMsgChat);
             die(json_encode($data));
         }
         public static function enviarMsg($mensagem,$idReceptor){

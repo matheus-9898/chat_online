@@ -18,21 +18,30 @@ $(function(){
     $('.contUsers').on('click','.user',function(){
         idReceptor = parseInt($(this).attr('idUser'));
         $.ajax({
-            type: "get",
+            type: "post",
             url: "index.php/?ajax=loadChat",
             data: {idReceptor : idReceptor},
             dataType: "json"
         }).done(function(data){
-            data = Object.entries(data.dadosChat);
-            var dadosChat = data[0][1];
+            var dadosPerfilChat = Object.entries(data.dadosPerfilChat);
+            dadosPerfilChat = dadosPerfilChat[0][1];
+
+            var dadosMsgChat = Object.entries(data.dadosMsgChat);
+
             $('.contAvisoChat').fadeOut(100);
             setTimeout(() => {
                 $('.contPerfil').fadeIn(100).css('display','flex');
                 $('.contMsgs').fadeIn(100).css('display','flex');
                 $('.contEnviar').fadeIn(100).css('display','flex');
             }, 100);
-            $('.contPerfil > span').html(dadosChat['nome']+' '+dadosChat['sobrenome']);
-            $('.contPerfil > img').attr('src','views/images/perfil/'+dadosChat['foto']);
+
+            $('.contPerfil > span').html(dadosPerfilChat['nome']+' '+dadosPerfilChat['sobrenome']);
+            $('.contPerfil > img').attr('src','views/images/perfil/'+dadosPerfilChat['foto']);
+
+            $.each(dadosMsgChat, function (index, value) { 
+                 var content = '<div class="msg '+value[1]['controle']+'"><div>'+value[1]['mensagem']+'</div></div>';
+                 $(content).prependTo('.contMsgs');
+            });
         });
     })
     //enviando mensagens

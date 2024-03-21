@@ -39,9 +39,9 @@
             $info = $sql->fetchAll(PDO::FETCH_ASSOC);
             return $info;
         }
-        public static function loadMsgChat(){
-            $sql = MysqlModel::conexaoBD()->prepare('SELECT * FROM mensagens WHERE emissor_id=? OR receptor_id=?');
-            $sql->execute(array($_SESSION['id'],$_SESSION['id']));
+        public static function loadMsgChat($idReceptor){
+            $sql = MysqlModel::conexaoBD()->prepare('SELECT * FROM mensagens WHERE (emissor_id=? AND receptor_id=?) OR (emissor_id=? AND receptor_id=?)');
+            $sql->execute(array($_SESSION['id'],$idReceptor,$idReceptor,$_SESSION['id']));
             $info = $sql->fetchAll(PDO::FETCH_ASSOC);
             return $info;
         }

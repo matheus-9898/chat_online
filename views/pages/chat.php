@@ -59,8 +59,8 @@
                     <span></span>
                 </div>
                 <div class="contMsgs">
-                    <?php //for ($i=0; $i < 10; $i++) { ?>
-                    <div class="msg msgEnviada">
+
+<!--                     <div class="msg msgEnviada">
                         <div>
                             Olá mundo! Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo! Enviado
                         </div>
@@ -69,8 +69,8 @@
                         <div>
                             Olá mundo! Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo! Recebido
                         </div>
-                    </div>
-                    <?php //} ?>
+                    </div> -->
+
                 </div>
                 <form action="<?= ROOT_PATH ?>" method="post" class="contEnviar" id="enviarMsg">
                     <textarea placeholder="Escreva sua mensagem..." name="mensagem" rows="1"></textarea>
