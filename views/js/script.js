@@ -38,9 +38,10 @@ $(function(){
             $('.contPerfil > span').html(dadosPerfilChat['nome']+' '+dadosPerfilChat['sobrenome']);
             $('.contPerfil > img').attr('src','views/images/perfil/'+dadosPerfilChat['foto']);
 
+            $('.contMsgs').html('');
             $.each(dadosMsgChat, function (index, value) { 
-                 var content = '<div class="msg '+value[1]['controle']+'"><div>'+value[1]['mensagem']+'</div></div>';
-                 $(content).prependTo('.contMsgs');
+                var content = '<div class="msg '+value[1]['controle']+'"><div>'+value[1]['mensagem']+'</div></div>';
+                $(content).prependTo('.contMsgs');
             });
         });
     })
