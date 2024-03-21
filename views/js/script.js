@@ -40,9 +40,16 @@ $(function(){
 
             $('.contMsgs').html('');
             $.each(dadosMsgChat, function (index, value) { 
-                var content = '<div class="msg '+value[1]['controle']+'"><div>'+value[1]['mensagem']+'</div></div>';
+                var horario = value[1]['dia_horario'].split(' ');
+                horario = horario[1].slice(0,5);
+                var content = '<div class="msg '+value[1]['controle']+'"><div><span>'+value[1]['mensagem']+'</span><span>'+horario+'</span></div></div>';
                 $(content).prependTo('.contMsgs');
             });
+            
+            $('.contMsgs').scrollTop($('.contMsgs').prop('scrollHeight'));
+/*             setTimeout(() => {
+                
+            }, 500); */
         });
     })
     //enviando mensagens

@@ -59,18 +59,7 @@
                     <span></span>
                 </div>
                 <div class="contMsgs">
-
-<!--                     <div class="msg msgEnviada">
-                        <div>
-                            Olá mundo! Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo! Enviado
-                        </div>
-                    </div>
-                    <div class="msg msgRecebida">
-                        <div>
-                            Olá mundo! Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo!Olá mundo! Recebido
-                        </div>
-                    </div> -->
-
+                    
                 </div>
                 <form action="<?= ROOT_PATH ?>" method="post" class="contEnviar" id="enviarMsg">
                     <textarea placeholder="Escreva sua mensagem..." name="mensagem" rows="1"></textarea>
