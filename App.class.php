@@ -1,6 +1,9 @@
 <?php 
     class App{
         public static function executar(){
+            if(isset($_POST['editUser'])){
+                controllers\ChatController::editUser($_POST['nome'],$_POST['sobrenome'],$_FILES['foto'],$_POST['usuario'],$_POST['senha']);
+            }
             if(isset($_GET['logout'])){
                 controllers\ChatController::logout();
             }

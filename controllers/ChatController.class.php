@@ -18,5 +18,22 @@
         public static function getUsers(){
             return models\ChatModel::getUsers();
         }
+        public static function editUser($nome,$sobrenome,$foto,$usuario,$senha){
+            if(trim($senha) == ''){
+                $senha = $_SESSION['senha'];
+            }
+            if($foto['error'] == UPLOAD_ERR_NO_FILE){
+                $foto = '';
+            }
+            $result = models\ChatModel::editUser($nome,$sobrenome,$foto,$usuario,$senha);
+            if($result != false){
+                $_SESSION['nome'] = $result[0];
+                $_SESSION['sobrenome'] = $result[1];
+                $_SESSION['foto'] = $result[2];
+                $_SESSION['usuario'] = $result[3];
+                $_SESSION['senha'] = $result[4];
+                self::redirect();
+            }
+        }
     }
 ?>
