@@ -49,6 +49,11 @@ $(function(){
             }, 100);
         });
     }
+    setInterval(() => {
+        if(idReceptor != null){
+            loadChat();
+        }
+    }, 3000);
     $('.contUsers').on('click','.user',function(){
         idReceptor = parseInt($(this).attr('idUser'));
         loadChat();
