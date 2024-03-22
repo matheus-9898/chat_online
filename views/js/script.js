@@ -15,8 +15,7 @@ $(function(){
         $('.contProfile').fadeOut(200);
     })
     //pegando dados do chat para serem exibidos
-    $('.contUsers').on('click','.user',function(){
-        idReceptor = parseInt($(this).attr('idUser'));
+    function loadChat(){
         $.ajax({
             type: "post",
             url: "index.php/?ajax=loadChat",
@@ -49,6 +48,10 @@ $(function(){
                 $('.contMsgs').scrollTop($('.contMsgs').prop('scrollHeight'));
             }, 100);
         });
+    }
+    $('.contUsers').on('click','.user',function(){
+        idReceptor = parseInt($(this).attr('idUser'));
+        loadChat();
     })
     //enviando mensagens
     $('#enviarMsg').submit(function (e) { 
@@ -61,7 +64,7 @@ $(function(){
                 data: $(this).serialize()+'&'+$.param({ idReceptor : idReceptor }),
                 dataType: "json"
             }).done(function(data){
-                
+                loadChat();
             });
 
             $('#enviarMsg > textarea').val('');
