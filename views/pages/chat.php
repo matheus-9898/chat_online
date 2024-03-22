@@ -53,7 +53,7 @@
             <div class="backChat">
                 <div class="contChat">
                     <div class="contAvisoChat">
-                        <span>Selecione um usuário para iniciar um chat.</span>
+                        <span>Selecione um usuário para conversar.</span>
                     </div>
                     <div class="contPerfil">
                         <div class="fotoPerfil"><img src="" alt="Perfil"></div>
