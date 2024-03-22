@@ -46,7 +46,7 @@
                     if($value['id'] != $_SESSION['id']){ ?>
                     <div class="user" iduser="<?= $value['id'] ?>">
                         <img src="views/images/perfil/<?= $value['foto'] ?>" alt="Perfil" class="fotoPerfil">
-                        <?= $value['nome'].' '. $value['sobrenome']?>
+                        <span><?= $value['nome'].' '. $value['sobrenome']?></span>
                     </div>
                 <?php } } ?>
             </div>
@@ -59,7 +59,7 @@
                     <span></span>
                 </div>
                 <div class="contMsgs">
-                    
+
                 </div>
                 <form action="<?= ROOT_PATH ?>" method="post" class="contEnviar" id="enviarMsg">
                     <textarea placeholder="Escreva sua mensagem..." name="mensagem" rows="1"></textarea>
