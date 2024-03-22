@@ -23,6 +23,13 @@ html{
     width: 40px;
     aspect-ratio: 1;
     border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.fotoPerfil > img{
+    width: 100%;
+    height: auto;
 }
 .contProfile{
     position: absolute;
@@ -65,10 +72,17 @@ html{
 .centerProfile .fotoArea svg{
     cursor: pointer;
 }
-.centerProfile .fotoArea img{
+.centerProfile .fotoArea > div{
     width: 200px;
-    height: 200px;
+    aspect-ratio: 1;
     border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.centerProfile .fotoArea > div img{
+    width: 100%;
+    height: auto;
 }
 .centerProfile .fotoArea #foto{
     display: none;

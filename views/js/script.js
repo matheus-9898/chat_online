@@ -34,7 +34,7 @@ $(function(){
                 $('.contEnviar').fadeIn(100).css('display','flex');
     
                 $('.contPerfil > span').html(dadosPerfilChat['nome']+' '+dadosPerfilChat['sobrenome']);
-                $('.contPerfil > img').attr('src','views/images/perfil/'+dadosPerfilChat['foto']);
+                $('.contPerfil img').attr('src','views/images/perfil/'+dadosPerfilChat['foto']);
     
                 $('.contMsgs').html('');
                 $.each(dadosMsgChat, function (index, value) { 
