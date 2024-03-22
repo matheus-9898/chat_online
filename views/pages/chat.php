@@ -50,21 +50,22 @@
                     </div>
                 <?php } } ?>
             </div>
-            <div class="contChat">
-                <div class="contAvisoChat">
-                    <span>Selecione um usuário para iniciar um chat.</span>
+            <div class="backChat">
+                <div class="contChat">
+                    <div class="contAvisoChat">
+                        <span>Selecione um usuário para iniciar um chat.</span>
+                    </div>
+                    <div class="contPerfil">
+                        <img src="" alt="Perfil" class="fotoPerfil">
+                        <span></span>
+                    </div>
+                    <div class="contMsgs">
+                    </div>
+                    <form action="<?= ROOT_PATH ?>" method="post" class="contEnviar" id="enviarMsg">
+                        <textarea placeholder="Escreva sua mensagem..." name="mensagem" rows="1"></textarea>
+                        <input type="submit" value="Enviar">
+                    </form>
                 </div>
-                <div class="contPerfil">
-                    <img src="" alt="Perfil" class="fotoPerfil">
-                    <span></span>
-                </div>
-                <div class="contMsgs">
-
-                </div>
-                <form action="<?= ROOT_PATH ?>" method="post" class="contEnviar" id="enviarMsg">
-                    <textarea placeholder="Escreva sua mensagem..." name="mensagem" rows="1"></textarea>
-                    <input type="submit" value="Enviar">
-                </form>
             </div>
         </div>
     </main>

@@ -168,17 +168,24 @@ main{
     overflow: hidden;
     text-wrap: nowrap;
 }
-.contChat{
+.backChat{
     flex: 1;
-    aspect-ratio: 0.8;
-    max-width: 480px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contChat{
     border-radius: 5px;
     border: 1px solid grey;
     display: flex;
     flex-direction: column;
     padding: 10px;
     gap: 10px;
+    aspect-ratio: 0.8;
+    max-width: 450px;
+    width: 100%;
+    height: 100%;
 }
 .contAvisoChat{
     height: 100%;
