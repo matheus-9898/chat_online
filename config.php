@@ -14,10 +14,10 @@
 
     date_default_timezone_set('America/Sao_Paulo');
 
-    define('ROOT_PATH','http://localhost/projetos/chat_online/');
+    define('ROOT_PATH','http://matheusm.online/chat_online/');
 
-    define('HOST','localhost');
-    define('BDNAME','chat_online');
-    define('USER','root');
-    define('PASS','');
+    define('HOST','162.241.2.230');
+    define('BDNAME','ondigc37_chat_online');
+    define('USER','ondigc37_matheus');
+    define('PASS','Stifler.28');
 ?>
