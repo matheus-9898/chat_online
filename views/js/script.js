@@ -33,23 +33,21 @@ $(function(){
                 $('.contPerfil').fadeIn(100).css('display','flex');
                 $('.contMsgs').fadeIn(100).css('display','flex');
                 $('.contEnviar').fadeIn(100).css('display','flex');
-            }, 100);
-
-            $('.contPerfil > span').html(dadosPerfilChat['nome']+' '+dadosPerfilChat['sobrenome']);
-            $('.contPerfil > img').attr('src','views/images/perfil/'+dadosPerfilChat['foto']);
-
-            $('.contMsgs').html('');
-            $.each(dadosMsgChat, function (index, value) { 
-                var horario = value[1]['dia_horario'].split(' ');
-                horario = horario[1].slice(0,5);
-                var content = '<div class="msg '+value[1]['controle']+'"><div><span>'+value[1]['mensagem']+'</span><span>'+horario+'</span></div></div>';
-                $(content).prependTo('.contMsgs');
-            });
-            
-            $('.contMsgs').scrollTop($('.contMsgs').prop('scrollHeight'));
-/*             setTimeout(() => {
+    
+                $('.contPerfil > span').html(dadosPerfilChat['nome']+' '+dadosPerfilChat['sobrenome']);
+                $('.contPerfil > img').attr('src','views/images/perfil/'+dadosPerfilChat['foto']);
+    
+                $('.contMsgs').html('');
+                $.each(dadosMsgChat, function (index, value) { 
+                    var horario = value[1]['dia_horario'].split(' ');
+                    horario = horario[1].slice(0,5);
+                    var content = '<div class="msg '+value[1]['controle']+'"><div><span>'+value[1]['mensagem']+'</span><span>'+horario+'</span></div></div>';
+                    $(content).prependTo('.contMsgs');
+                });
                 
-            }, 500); */
+                //mover scroll para o final do chat
+                $('.contMsgs').scrollTop($('.contMsgs').prop('scrollHeight'));
+            }, 100);
         });
     })
     //enviando mensagens
